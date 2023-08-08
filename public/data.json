@@ -1,4 +1,4 @@
-let data = [
+[
     { "id": "am1", "city": "Cancun", "photo": "/img/america/cancun.jpg" },
     { "id": "am2", "city": "New York", "photo": "/img/america/newyork.jpg" },
     { "id": "am3", "city": "Rio de Janeiro", "photo": "/img/america/rioDeJaneiro.jpg"},
