@@ -1,36 +1,50 @@
 import { useState, useEffect } from "react";
 import Carrousel from "../components/Carrousel";
 import axios from "axios";
-
+import { Link as Anchor } from "react-router-dom";
 
 export default function Home() {
-  const [show, setShow] = useState(true);
+  // const [show, setShow] = useState(true);
   const [data, setData] = useState([]);
 
-
-  useEffect( 
-    ()=>{
-      axios('/data.json')
-        .then(res=> setData(res.data))
-        .catch(err=> console.log(err))
-    },
-    []
-  )
+  useEffect(() => {
+    axios("/data.json")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
-    <main className="flex items-top flex-col sm:flex-row w-[95vw] mt-20 border-2 border-blue-500 ">
+    <main
+      className="flex-col items-center w-[95vw] my-[1.5em] mx-auto
+                 sm:flex-row                     
+                 lg:flex"
+    >
       {/* SIDE TEXT */}
-      <div className="w-[40vw] flex-1 my-auto ">
-        <h2 className="font-[700] text-[40px]">Find the perfect destination</h2>
-        <p className="w-[40vw] mb-[1em] mt-3  text-[#1C1C1C] text-[15px]">
+      <div className="w-[40vw] flex-1 my-auto  ">
+        <h2
+          className="flex justify-center w-[95vw] text-[28px] font-bold mt-0                       
+                     md:mt-[2em] 
+                     lg:w-max lg:ml-0 lg:font-[700] lg:text-[40px] lg:justify-start"
+        >
+          Find the perfect destination
+        </h2>
+        <p
+          className="w-[95vw] text-center px-[1em] text-[#1C1C1C] mt-[0.5em] mb-[1em] text-[15px]                      
+                     lg:w-[40vw] lg:text-start "
+        >
           Our app will help you find the perfect path for your next trip. With
           an easy-to-use interface and a host of itinerary options, planning
           your next trip has never been easier.
         </p>
 
         {/* VIEW MORE BUTTON */}
-        <button className="flex items-center justify-center bg-[#4F46E5] w-[15rem] h-[3rem] rounded-[8px] text-white ">
-          View More
+        <Anchor
+          to="/cities"
+          className="flex items-center justify-center  w-[80vw] ml-[1.8em] mb-[1em] h-[3rem] bg-[#4F46E5] rounded-[8px] text-white                                        
+                     md:w-max md:px-[2em] md:mx-auto md:ml-[16em]
+                     lg:w-[15em] lg:ml-0 lg:px-0 "
+        >
+          Find the city for you!
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -45,30 +59,10 @@ export default function Home() {
               d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
             />
           </svg>
-        </button>
+        </Anchor>
       </div>
-
-      {/* CARROUSEL */}       
-      {/* ELIMINAR BOTON SHOW/HIDE */}
-      {show ? (
-        <input
-          onClick={() => setShow(!show)}
-          type="button"
-          value="Hide"
-          className="h-max my-auto bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        />
-      ) : (
-        <input
-          onClick={() => setShow(!show)}
-          type="button"
-          value="Show"
-          className="h-max my-auto bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
-        />
-      )}
-
-      {show ? <Carrousel data={data} /> : <h1 className="flex items-center my-auto mx-5 bg-blue-300 h-max p-3 rounded-[5px]"> Click to see cards! </h1>}
-      {/* <Carrousel data={data} /> */} 
-
+      {/* CARROUSEL */}
+      <Carrousel data={data} />
     </main>
   );
 }
