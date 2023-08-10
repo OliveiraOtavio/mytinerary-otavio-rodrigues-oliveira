@@ -1,29 +1,61 @@
 import { useState } from "react";
+import { Link as Anchor } from "react-router-dom";
 
 export default function NavBar() {
   let [show, setShow] = useState(false);
 
   return (
-    <header className="h-[6em] w-[95vw] flex justify-between items-center font-segoe-ui mt-[2em] border-4 border-red-300">
-      <div className="flex items-center">
+    <header className="h-[6em] w-[95vw] flex justify-between items-center font-segoe-ui mt-[2em]">
+      <div
+        className="flex items-center
+                      md:mt-[2em]"
+      >
         <img
-          className="w-[6em] mr-2"
+          className="w-[6em] 
+                     md:w-[6em] md:mr-2
+                     lg:w-[8em]"
           src="/img/mytinerary-logo.png"
           alt="My Tinerary Logo"
         />
         <div>
-          <h1 className="text-[32px] font-[700]">My Tinerary</h1>
-          <p className="text-[16px] text-gray-600 underline underline-offset-[0.5em]">
+          <h1
+            className="text-[2em] w-[50vw] font-[700]                         
+                         md:text-[32px] md:flex 
+                         lg:flex"
+          >
+            My Tinerary
+          </h1>
+          <p
+            className=" w-[60vw] hidden underline underline-offset-[0.5em] text-gray-600                         
+                         md:text-[16px] md:flex md:no-underline md:w-[20em]
+                         lg:flex lg:w-[50vw] lg:underline lg:underline-offset-[0.5em] lg:text-[18px]"
+          >
             Find your perfect trip, design by insiders who know and love their
             cities!
           </p>
         </div>
       </div>
-      <div className="w-[30em] flex justify-between items-center font-semibold border-2 border-green-500">
-        <a href="">Home</a>
-        <a href="">Cities</a>
+      <div
+        className="flex justify-between items-center font-semibold 
+                   md:w-[20em] 
+                   lg:w-[20em] 
+        "
+      >
+        <Anchor to="/" className="hidden md:flex">
+          {" "}
+          Home{" "}
+        </Anchor>
+        <Anchor to="/cities" className="hidden md:flex">
+          {" "}
+          Cities{" "}
+        </Anchor>
         <div>
-          <button className="bg-[#4F46E5] rounded-[10px] w-min p-2 px-3  text-white flex items-center justify-center">
+          <Anchor
+            to="/login"
+            className="hidden bg-[#4F46E5] rounded-[10px] w-min p-2 px-3  text-white flex items-center justify-center
+            sm:hidden
+            md:flex "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="white"
@@ -39,17 +71,18 @@ export default function NavBar() {
               />
             </svg>
             Login
-          </button>
+          </Anchor>
         </div>
-        {/* MENU HAMBURGUESA */}
+        {/* HAMBURGER MENU */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="cursor-pointer w-[30px] h-[30px]"
-          onClick={()=>setShow(!show)}
+          className=" cursor-pointer w-[3em] h-[3em] mr-[0.5em] bg-[#0f4387] text-white rounded  p-[2px] 
+                      md:hidden"
+          onClick={() => setShow(!show)}
         >
           <path
             strokeLinecap="round"
@@ -58,13 +91,27 @@ export default function NavBar() {
           />
         </svg>
         {show ? (
-          <div className="absolute top-[6.5em] right-[1.6em] flex flex-col border-2 border-blue-500 rounded-[5px] p-[0.5em] bg-gray-800 text-white">
-          <p className="mx-1 my-[0.5em] bg-gray-700 p-[0.3em] px-[1em]">Home</p>
-          <p className="mx-1 my-[0.5em] bg-gray-700 p-[0.3em] px-[1em]">Cities</p>
-          <p className="mx-1 my-[0.5em] bg-gray-700 p-[0.3em] px-[1em]">Login</p>
-        </div>
-        ) : (null)}
-        
+          <div className="absolute top-[6.8em] right-[1.2em] flex flex-col  rounded p-[0.5em] bg-gray-800 text-white bg-gray-700 ">
+            <Anchor
+              to="/"
+              className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+            >
+              Home
+            </Anchor>
+            <Anchor
+              to="/cities"
+              className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+            >
+              Cities
+            </Anchor>
+            <Anchor
+              to="/login"
+              className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+            >
+              Login
+            </Anchor>
+          </div>
+        ) : null}
       </div>
     </header>
   );
