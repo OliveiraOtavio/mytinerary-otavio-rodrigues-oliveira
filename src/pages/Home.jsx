@@ -2,14 +2,17 @@ import { useState, useEffect } from "react";
 import Carrousel from "../components/Carrousel";
 import axios from "axios";
 import { Link as Anchor } from "react-router-dom";
+import apiUrl from '../apiUrl';
 
 export default function Home() {
   // const [show, setShow] = useState(true);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios("/data.json")
-      .then((res) => setData(res.data))
+   // axios("/data.json") aca trae la data del data.json
+      axios(apiUrl+ 'cities/carousel')
+      //.then((res) => console.log(res.data.data_carousel))
+      .then((res) => setData(res.data.data_carousel))
       .catch((err) => console.log(err));
   }, []);
 
