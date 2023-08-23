@@ -1,17 +1,37 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link as Anchor } from "react-router-dom";
+
+function useOutsideClick(ref, callback) {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, callback]);
+}
 
 export default function NavBar() {
   let [show, setShow] = useState(false);
+  const menuRef = useRef(null);
+
+  useOutsideClick(menuRef, () => {
+    if (show) setShow(false);
+  });
 
   return (
-    <header className="h-[6em] w-[95vw] flex justify-between items-center font-segoe-ui mt-[2em]">
+    <header className="h-[6em] w-[95vw] flex justify-between items-center font-segoe-ui mt-[2em] z-10  ">
       <div
-        className="flex items-center
+        className="flex items-center 
                       md:mt-[2em]"
       >
         <img
-          className="w-[6em] 
+          className="w-[6em] bg-white/90 rounded-full
                      md:w-[6em] md:mr-2
                      lg:w-[8em]"
           src="/img/mytinerary-logo.png"
@@ -41,7 +61,7 @@ export default function NavBar() {
                    lg:w-[20em] 
         "
       >
-        <Anchor to="/" className="hidden md:flex">
+        <Anchor to="/" className="hidden md:flex ">
           {" "}
           Home{" "}
         </Anchor>
@@ -91,22 +111,28 @@ export default function NavBar() {
           />
         </svg>
         {show ? (
-          <div className="absolute top-[6.8em] right-[1.2em] flex flex-col  rounded p-[0.5em] bg-gray-800 text-white bg-gray-700 ">
+          <div
+            ref={menuRef}
+            className="absolute top-[6.8em] right-[1.2em] flex flex-col  rounded p-[0.5em] bg-gray-800 text-white bg-gray-700 "
+          >
             <Anchor
               to="/"
               className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+              onClick={() => setShow(false)}
             >
               Home
             </Anchor>
             <Anchor
               to="/cities"
               className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+              onClick={() => setShow(false)}
             >
               Cities
             </Anchor>
             <Anchor
               to="/login"
               className="mx-1 my-[0.5em] bg-blue-700 rounded p-[0.3em] px-[1em]"
+              onClick={() => setShow(false)}
             >
               Login
             </Anchor>

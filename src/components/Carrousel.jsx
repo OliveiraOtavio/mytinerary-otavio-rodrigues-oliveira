@@ -3,12 +3,16 @@ import CardHome from "../components/CardHome";
 import { useEffect, useState } from "react";
 
 export default function Carrousel({ data }) {
+  const filteredData = data.filter(
+    (city) => city._id !== "64e157ac7653f025279ca322"
+  );
+
   let imagesPerView = window.innerWidth <= 768 ? 1 : 4;
   let [counter, setCounter] = useState(0);
   let [counterTo, setCounterTo] = useState(imagesPerView);
 
   function next_slide() {
-    if (data.length <= counterTo) {
+    if (filteredData.length <= counterTo) {
       setCounter(0);
       setCounterTo(imagesPerView);
     } else {
@@ -19,8 +23,8 @@ export default function Carrousel({ data }) {
 
   function previous_slide() {
     if (counter <= 0) {
-      setCounter(data.length - imagesPerView);
-      setCounterTo(data.length);
+      setCounter(filteredData.length - imagesPerView);
+      setCounterTo(filteredData.length);
     } else {
       setCounter(counter - imagesPerView);
       setCounterTo(counterTo - imagesPerView);
@@ -42,13 +46,17 @@ export default function Carrousel({ data }) {
 
   return (
     <div
-      className="w-[90vw] h-[18em] mt-[1.5em] flex justify-center items-center bg-[#0f4387] rounded-[10px]  mx-auto  
+      className="w-[90vw] h-[18em] mt-[5em] flex justify-center items-center bg-[#0f4387] rounded-[10px]  mx-auto  
                  md:w-[90vw] md:h-max 
-                 lg:h-max">
+                 lg:w-[45vw] lg:h-[70vh] lg:mt-[7em] lg:mr-[3em]
+                 2xl:mt-[10em]"
+    >
       <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={previous_slide} />
-      <div className="grid grid-cols-1 my-[2em]
-                      md:grid-cols-2">
-        {data.slice(counter, counterTo).map((each, index) => (
+      <div
+        className="grid grid-cols-1 my-[2em]
+                      md:grid-cols-2"
+      >
+        {filteredData.slice(counter, counterTo).map((each, index) => (
           <CardHome
             key={index}
             src={each.photo}
