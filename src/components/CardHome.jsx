@@ -4,7 +4,7 @@ export default function CardHome({ src, alt, text }) {
       <img
         className="w-[80vw] h-[25vh] object-cover p-[0.5em]
                    md:w-[50vw] md:h-[20vh] md:object-cover
-                   lg:w-[30vw] lg:h-[35vh] lg:object-cover"
+                   lg:w-[30vw] lg:h-[25vh] lg:object-cover"
         src={src}
         alt={alt}
       />

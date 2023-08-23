@@ -10,13 +10,14 @@ export default function Footer() {
   };
 
   return (
-    <footer className="text-white w-[95vw] h-[4em] bg-[#0f4387] flex justify-start items-center my-[1em] px-[1em] mx-auto">
+    <footer className="text-white w-[100vw] h-[4em] bg-[#0f4387] flex justify-start items-center mt-[1em] px-[1em] mx-auto">
       <SocialIcons />
       <div className="w-full flex justify-around items-center font-semibold ">
         <p
           className="hidden underline underline-offset-[10px]
                      md:flex md:w-[40vw] md:no-underline md:text-center 
-                     lg:flex ">
+                     lg:flex "
+        >
           MindHub 2023 - Full Stack MERN - Comision 05 TM - Otavio R. Oliveira
         </p>
         <div className=" text-white w-max h-[3.5em] bg-[#0f4387] flex justify-center items-center font-semibold gap-7">
@@ -33,7 +34,8 @@ export default function Footer() {
               className="w-max  text-white flex ml-[25vw] p-[0.5em] b 
                          md:ml-0
                          lg:gap-2 lg:ml-0"
-              onClick={handleScrollToTop}>
+              onClick={handleScrollToTop}
+            >
               Back to top!
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +43,8 @@ export default function Footer() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-6 h-6">
+                className="w-6 h-6"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

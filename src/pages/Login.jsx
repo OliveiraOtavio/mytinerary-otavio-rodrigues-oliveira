@@ -1,6 +1,9 @@
 export default function Login() {
   return (
-    <div className="bg-[#0f4387] w-[95vw] my-[2em] mx-auto flex justify-center p-[2em] rounded">
+    <div
+      className="bg-gray-800 w-[100vw] mt-[8em] mx-auto flex justify-center p-[2em] rounded 
+                    2xl:mt-[12em]"
+    >
       <img
         className="flex justify-center rounded w-[50vw] "
         src="/img/page-under-construction-transformed.png"
