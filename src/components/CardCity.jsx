@@ -5,12 +5,12 @@ export default function CardCity({ src, alt, text, id, country }) {
     <div
       className="relative flex flex-col items-center justify-between rounded p-[0.5em] w-[90vw] mx-auto mb-[1em] 
                     md:w-[45vw] md:p-0
-                    lg:w-[24vw] lg:mb-[1em]"
+                    lg:w-[24vw] lg:mb-[1em]  "
     >
       <img
-        className="w-[80vw] h-[25vh] object-cover rounded-[15px]
+        className="w-[80vw] h-[25vh] object-cover rounded-[15px] 
                      md:w-[45vw] md:h-[20vh] 
-                     lg:w-[22vw] lg:h-[35vh]  lg:rounded-[15px] lg:mb-[1.5em]"
+                     lg:w-[22vw] lg:h-[35vh]  lg:rounded-[7px] lg:mb-[1.5em]"
         src={src}
         alt={alt}
       />
@@ -19,7 +19,8 @@ export default function CardCity({ src, alt, text, id, country }) {
           md:w-[45vw] md:top-0
           lg:w-[22vw]"
       >
-        <span className="font-bold flex items-center  text-md bg-black/50 py-[0.3em] rounded-t-[15px]">
+        <span className="font-bold flex  text-md  py-[0.3em] rounded-t-[7px] bg-gradient-to-b from-black/60 from-50% to-transparent h-[15vh] items-start
+                         lg:bg-gradient-to-b lg:from-black/60 lg:from-50% lg:to-transparent lg:h-[20vh] lg:items-start">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
