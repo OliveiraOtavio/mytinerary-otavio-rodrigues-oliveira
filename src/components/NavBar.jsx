@@ -46,7 +46,7 @@ export default function NavBar() {
             My Tinerary
           </h1>
           <p
-            className=" w-[60vw] hidden underline underline-offset-[0.5em] text-gray-600                         
+            className=" w-[60vw] hidden underline underline-offset-[0.5em] text-gray-600      
                          md:text-[16px] md:flex md:no-underline md:w-[20em]
                          lg:flex lg:w-[50vw] lg:underline lg:underline-offset-[0.5em] lg:text-[18px]"
           >
