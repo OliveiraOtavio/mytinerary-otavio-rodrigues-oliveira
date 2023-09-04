@@ -51,7 +51,9 @@ export default function Carrousel({ data }) {
                  lg:w-[45vw] lg:h-[70vh] lg:mt-[7em] lg:mr-[3em]
                  2xl:mt-[10em]"
     >
+      <div className="text-white w-[40px] h-[40px] stroke-[4px]">
       <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={previous_slide} />
+      </div>
       <div
         className="grid grid-cols-1 my-[2em]
                       md:grid-cols-2"
@@ -65,7 +67,9 @@ export default function Carrousel({ data }) {
           />
         ))}
       </div>
+      <div className="text-white w-[40px] h-[40px] stroke-[4px]">
       <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" onClick={next_slide} />
+      </div>
     </div>
   );
 }

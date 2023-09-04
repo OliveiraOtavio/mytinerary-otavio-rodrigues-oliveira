@@ -25,7 +25,7 @@ export default function Form() {
         apiUrl + "users/signup", // url del endpoint de creacion
         data // objeto con los datos para crear
       );
-      console.log(data);
+      //console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -34,60 +34,70 @@ export default function Form() {
   return (
     <form
       action=""
-      className="mt-[8em] flex flex-col grow p-[1em] gap-[1em] w-[40vw] mx-auto bg-blue-900 rounded"
+      className="mt-[6em] flex flex-col grow p-[1em] gap-[1em] w-[80vw] mx-auto bg-blue-900 rounded
+      md:
+      lg:w-[40vw] lg:mt-[8em]
+      2xl:mt-[13em]"
     >
+      <p className="text-white text-[2em] text-center font-bold p-[0.5em]">Create account</p>
+      <p className="text-white font-bold mb-[-0.5em]">Name</p>
       <input
         ref={name}
         type="text"
         name="name"
         id="name"
         defaultValue=""
-        placeholder="Type your name "
+        placeholder="Enter your name "
         className="py-[0.5em] rounded indent-[1em] "
       />
+      <p className="text-white font-bold mb-[-0.5em]">Last Name</p>
       <input
         ref={lastName}
         type="text"
         name="lastName"
         id="lastName"
         defaultValue=""
-        placeholder="Type your last name"
+        placeholder="Enter your last name"
         className="py-[0.5em] rounded indent-[1em] "
       />
+      <p className="text-white font-bold mb-[-0.5em]">Country</p>
       <input
         ref={country}
         type="text"
         name="country"
         id="country"
         defaultValue=""
-        placeholder="Type your country"
+        placeholder="Enter your country"
         className="py-[0.5em] rounded indent-[1em] "
       />
+      <p className="text-white font-bold mb-[-0.5em]">Profile Picture</p>
       <input
         ref={photo}
         type="text"
         name="photo"
         id="photo"
         defaultValue=""
-        placeholder="Type your photo url"
+        placeholder="Enter your photo url"
         className="py-[0.5em] rounded indent-[1em] "
       />
+      <p className="text-white font-bold mb-[-0.5em]">Email</p>
       <input
         ref={mail}
         type="text"
         name="mail"
         id="mail"
         defaultValue=""
-        placeholder="Type your mail"
+        placeholder="Enter your email adress"
         className="py-[0.5em] rounded indent-[1em] "
       />
+      <p className="text-white font-bold mb-[-0.5em]">Password</p>
       <input
         ref={password}
         type="password"
         name="password"
         id="password"
         defaultValue=""
-        placeholder="Type your password"
+        placeholder="Enter your password"
         className="py-[0.5em] rounded indent-[1em] "
       />
       <input

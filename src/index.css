@@ -3,3 +3,30 @@
 @tailwind utilities;
 
 
+@keyframes heartBeat {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-heartBeat {
+    animation: heartBeat 1s;
+}
+
+.bg-instagram {
+    background-color: #c13584;
+  }
+  
+  .bg-facebook {
+    background-color: #1877f2;
+  }
+  
+  .bg-twitter {
+    background-color: #1da1f2;
+  }

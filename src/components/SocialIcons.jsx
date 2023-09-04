@@ -45,7 +45,7 @@ export default function SocialIcons() {
             type="button"
             data-te-ripple-init
             data-te-ripple-color="light"
-            className={`bg-[${icon.color}] w-[3em] inline-block rounded  px-2 flex justify-start py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg
+            className={`bg-${icon.name.toLowerCase()} w-[3em] inline-block rounded  px-2 flex justify-start py-2.5 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg
                         md:px-6 md:w-[6em]`}
           >
             <svg

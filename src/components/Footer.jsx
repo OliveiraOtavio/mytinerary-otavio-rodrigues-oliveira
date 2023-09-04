@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="text-white w-[100vw] h-[4em] bg-[#0f4387] flex justify-start items-center mt-[1em] px-[1em] mx-auto">
+    <footer className="text-white w-full h-[4em] bg-[#0f4387] flex justify-start items-center mt-[1em] px-[1em] mx-auto">
       <SocialIcons />
       <div className="w-full flex justify-around items-center font-semibold ">
         <p
