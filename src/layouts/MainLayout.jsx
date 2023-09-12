@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gray-300">
+    <div className="w-full min-h-screen flex flex-col bg-gray-300 lg:bg-[url('/img/map-airplane.png')]">
       <NavBar />
       {/* NAVBAR BACKGROUND */}
       <div className="flex-grow w-full   ">
